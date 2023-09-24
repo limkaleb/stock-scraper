@@ -1,5 +1,6 @@
 import axios from "axios"
 import { createClient } from "redis"
+import 'dotenv/config'
 
 const instance = axios.create({
   baseURL: "https://stockbit.com/api/",
@@ -8,8 +9,8 @@ const instance = axios.create({
 
 export default async function main() {
   const response = await instance.post("/login/email", {
-    username: "limkaleb@gmail.com",
-    password: "Born041091",
+    username:  process.env.EMAIL,
+    password:  process.env.PASSWORD,
   })
 
   const { access } = response.data.data
