@@ -28,7 +28,7 @@ export default async (company, type, metric) => {
   const pbv = []
 
   const url = constant.URL(company, constant.REPORT_TYPE[metric], 1)[type]
-  console.log('result of geturl: ', url)
+  // console.log('result of geturl: ', url)
   
   const response = await instance.get(url)
 
@@ -62,7 +62,6 @@ export default async (company, type, metric) => {
         value: curVal.value,
       }
     })
-    console.log('current valuation: ', result)
     return result
   } else if (type === 'financial') {
     console.log('metricc here: ', metric)
@@ -86,9 +85,7 @@ export default async (company, type, metric) => {
     switch (metric) {
       case "netIncome":
           // Net income
-        console.log('zzz here')
         const $net = $(".total-val-76", html)
-        console.log('766: ', $net)
         $net.each((i, p) => {
           const netIncome = $(p).text()
           net.push(netIncome) 

@@ -70,7 +70,7 @@ async function main() {
     if (type === 'info') {
       // console.log(res)
       const transformed = res.map((item) => {
-        console.log(chalk.blue(item.key) + ': ' + chalk.green.bold(item.value))
+        console.log(chalk.white(item.key) + ': ' + chalk.green.bold(item.value))
       })
     } else {
       console.log('here')
